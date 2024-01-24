@@ -2,7 +2,7 @@ import { useState } from 'react';
 import componentImg from "./assets/components.png"
 import { CORE_CONCEPTS, EXAMPLES } from "./data.js"
 import Header from './components/Header/Header.jsx';
-import CoreComponent from './components/CoreConcept.jsx';
+import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 
 function App() {
@@ -34,10 +34,8 @@ function App() {
         <section id="core-concepts">
           <h2>Core Components</h2>
           <ul>
-            <CoreComponent {...CORE_CONCEPTS[0]} />
-            <CoreComponent {...CORE_CONCEPTS[1]} />
-            <CoreComponent {...CORE_CONCEPTS[2]} />
-            <CoreComponent {...CORE_CONCEPTS[3]} />
+            {CORE_CONCEPTS.map((conceptItem) => (<CoreConcept key={conceptItem.title} {...conceptItem} />))}
+
           </ul>
         </section>
         <section id="examples">
