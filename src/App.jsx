@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import componentImg from "./assets/components.png"
 import { CORE_CONCEPTS } from "./data.js"
 import Header from './components/Header/Header.jsx';
@@ -5,9 +6,13 @@ import CoreComponent from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 
 function App() {
-  function handleSelect(selectedButton) {
+  const [selectedTopic, setSelectedTopic] = useState('Please select a topic');
 
-    console.log(`You selected ${selectedButton}`);
+
+
+  function handleSelect(selectedButton) {
+    setSelectedTopic(selectedButton)
+
   }
   return (
     <div>
@@ -30,7 +35,7 @@ function App() {
             <TabButton onSelect={() => handleSelect('Props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('State')}>State</TabButton>
           </menu>
-          Dynamic Content
+          {selectedTopic}
         </section>
       </main>
     </div>
